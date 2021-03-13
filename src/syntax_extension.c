@@ -26,17 +26,6 @@ cmark_syntax_extension *cmark_syntax_extension_new(const char *name) {
   return res;
 }
 
-cmark_node_type cmark_syntax_extension_add_node(int is_inline) {
-  cmark_node_type *ref = !is_inline ? &CMARK_NODE_LAST_BLOCK : &CMARK_NODE_LAST_INLINE;
-
-  if ((*ref & CMARK_NODE_VALUE_MASK) == CMARK_NODE_VALUE_MASK) {
-    assert(false);
-    return (cmark_node_type) 0;
-  }
-
-  return *ref = (cmark_node_type) ((int) *ref + 1);
-}
-
 void cmark_syntax_extension_set_emphasis(cmark_syntax_extension *extension,
                                          int emphasis) {
   extension->emphasis = emphasis == 1;

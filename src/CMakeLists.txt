@@ -170,9 +170,15 @@ if(CMARK_SHARED OR CMARK_STATIC)
   install(FILES
     cmark-gfm.h
     cmark-gfm-extension_api.h
+    cmark_ctype.h
+    buffer.h
+    chunk.h
+    houdini.h
+    node.h
+    ${CMAKE_CURRENT_BINARY_DIR}/config.h
     ${CMAKE_CURRENT_BINARY_DIR}/cmark-gfm_export.h
     ${CMAKE_CURRENT_BINARY_DIR}/cmark-gfm_version.h
-    DESTINATION include
+    DESTINATION include/cmark
     )
 
   install(EXPORT cmark-gfm DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake)

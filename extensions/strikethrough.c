@@ -2,8 +2,6 @@
 #include <parser.h>
 #include <render.h>
 
-cmark_node_type CMARK_NODE_STRIKETHROUGH;
-
 static cmark_node *match(cmark_syntax_extension *self, cmark_parser *parser,
                          cmark_node *parent, unsigned char character,
                          cmark_inline_parser *inline_parser) {
@@ -152,7 +150,6 @@ cmark_syntax_extension *create_strikethrough_extension(void) {
   cmark_syntax_extension_set_man_render_func(ext, man_render);
   cmark_syntax_extension_set_html_render_func(ext, html_render);
   cmark_syntax_extension_set_plaintext_render_func(ext, plaintext_render);
-  CMARK_NODE_STRIKETHROUGH = cmark_syntax_extension_add_node(1);
 
   cmark_syntax_extension_set_match_inline_func(ext, match);
   cmark_syntax_extension_set_inline_from_delim_func(ext, insert);

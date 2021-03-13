@@ -11,6 +11,7 @@ set(LIBRARY_SOURCES
     ext_scanners.re
     ext_scanners.h
     tasklist.c
+    cmarklib.c
    )
 
 include_directories(
@@ -85,9 +86,10 @@ install(TARGETS ${CMARK_INSTALL}
 
 if (CMARK_SHARED OR CMARK_STATIC)
   install(FILES
+  cmarklib.h
   cmark-gfm-core-extensions.h
   ${CMAKE_CURRENT_BINARY_DIR}/cmark-gfm-extensions_export.h
-  DESTINATION include
+  DESTINATION include/cmark
   )
 
   install(EXPORT cmark-gfm-extensions DESTINATION lib${LIB_SUFFIX}/cmake-gfm-extensions)

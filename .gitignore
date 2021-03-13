@@ -39,3 +39,8 @@ alltests.md
 progit/
 bench/benchinput.md
 test/afl_results/
+
+# Other repositories
+.hg
+.hgignore
+.svn
